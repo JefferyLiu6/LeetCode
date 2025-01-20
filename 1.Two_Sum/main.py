@@ -1,5 +1,5 @@
 class Solution:
-# BruteForce (o^2) not suggested
+# BruteForce Time Complexit:(o^2)  not suggested
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         sum = 0
         for i in range(len(nums)):
@@ -9,4 +9,13 @@ class Solution:
                 if sum == target:
                     return [i, j]
     
-    def twoSum
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        map = {}
+
+        for i in range(len(nums)):
+            map[nums[i]] = i
+
+        for i in range(len(nums)):
+            min = target - nums[i]
+            if min in map and map[min] != i:
+                return [i, map[min]]
